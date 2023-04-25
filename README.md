@@ -1,14 +1,19 @@
 # Gita Greeter
 
-Divine Bhagavad-gita verses welcoming you on command line. 🙏
+Divine Bhagavad-gita verses greeter on command line. 🙏. All verses are stored on *./bhagavad.sqlite* database.
 
-## Setup
+## Build
 
 As of now, the only way to build project is using rust toolchains.
 
 ```sh
-git clone https://github.com/aniketkharel/gita-greeter
-cd gita-greeter
+    git clone https://github.com/aniketkharel/gita-greeter
 
-cargo build --release
+    cd gita-greeter
+
+    cargo build --release
+
+    # or
+
+    make build
 ```
