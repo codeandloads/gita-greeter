@@ -1,0 +1,26 @@
+[package]
+name = "gita-greeter"
+edition = "2021"
+version = "0.1.0"
+authors = ["Aniket Kharel <aniketkhareldev@gmail.com>"]
+license = "GPL"
+description = "A fun command line utility to print divine Bhagavad gita verses."
+readme = "README.md"
+homepage = "https://github.com/aniketkhareldev/gita-greeter"
+repository = "https://github.com/aniketkhareldev/gita-greeter"
+keywords = ["cli", "fun", "gita", "command-line"]
+categories = ["command-line-utilities"]
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "bhagavad.sqlite"
+]
+
+[dependencies]
+sqlite = "0.30.4"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
