@@ -1,4 +1,5 @@
 {
+  description = "gita_greeter flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
