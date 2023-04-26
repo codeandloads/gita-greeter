@@ -1,17 +1,13 @@
 use sqlite::Connection;
 use sqlite::Error;
 use std::env;
+use std::path::PathBuf;
 
 pub fn connect() -> Result<Connection, Error> {
-    let sqlite_path_dir: String;
-    let exe_path = env::current_exe().expect("Failed to get current executable path");
-    let db_dir = exe_path.parent().expect("Failed to get parent directory");
-    let file_path_dir = db_dir.join("bhagavad.sqlite");
-    sqlite_path_dir = file_path_dir.to_string_lossy().to_string();
-
-    // Embed the example.sqlite file as a string
-    const EXAMPLE_SQLITE: &str = include_str!("../../bhagavad.sqlite");
-    match sqlite::open(sqlite_path_dir) {
+    let home_dir = env::var_os("HOME").expect("Failed to get home directory");
+    let mut db_path = PathBuf::from(home_dir);
+    db_path.push("bhagavad.sqlite");
+    match sqlite::open(db_path) {
         Ok(conn) => return Ok(conn),
         Err(err) => Err(err),
     }
