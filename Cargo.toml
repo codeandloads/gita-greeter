@@ -1,5 +1,5 @@
 [package]
-name = "gita-greeter"
+name = "gita_greeter"
 edition = "2021"
 version = "0.1.0"
 authors = ["Aniket Kharel <aniketkhareldev@gmail.com>"]
@@ -17,7 +17,7 @@ include = [
 ]
 
 [[bin]]
-name = "gita-greeter"
+name = "gita_greeter"
 path = "src/main.rs"
 
 [dependencies]

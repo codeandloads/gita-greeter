@@ -4,12 +4,11 @@
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
-
   outputs = { self, nixpkgs, flake-utils, rust-overlay, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system overlays; };
         overlays = [ (import rust-overlay) ];
+        pkgs = import nixpkgs { inherit system overlays; };
         rustVersion = pkgs.rust-bin.stable.latest.default;
 
         rustPlatform = pkgs.makeRustPlatform {
@@ -17,19 +16,24 @@
           rustc = rustVersion;
         };
 
-        gita-greeter = rustPlatform.buildRustPackage {
-          pname = "gita-greeter";
+        gita_greeter = rustPlatform.buildRustPackage {
+          pname =
+            "gita_greeter";
           version = "0.1.0";
           src = ./.;
           cargoLock.lockFile = ./Cargo.lock;
         };
-
+        dockerImage = pkgs.dockerTools.buildImage {
+          name = "gita_greeter";
+          config = { cmd = [ "${gita_greeter}/bin/gita_greeter" ]; };
+        };
       in
       {
         packages = {
-          rustPackage = gita-greeter;
+          rustPackage = gita_greeter;
+          docker = dockerImage;
         };
-        defaultPackage = gita-greeter;
+        defaultPackage = gita_greeter;
         devShell = pkgs.mkShell {
           buildInputs =
             [ (rustVersion.override { extensions = [ "rust-src" ]; }) ];
