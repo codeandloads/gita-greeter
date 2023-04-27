@@ -1,8 +1,12 @@
 # Gita Greeter
 
-Divine Bhagavad-gita verses greeter on command line. 🙏. All verses are stored on *./bhagavad.sqlite* database.
+Divine Bhagavad-gita verses greeter on command line. 🙏. All verses are stored on _./bhagavad.sqlite_ database.
 
 The project depends on your HOME variable and thus it required bhagavad.sqlite to be stored in _$HOME/_ directory. i.e your home directory.
+
+## Setup
+
+You can either symlink the binary file and place _bhagavad.sqlite_ to your $HOME directory, and then executre the binary from your .bashrc, .zshrc.
 
 ## Build
 
