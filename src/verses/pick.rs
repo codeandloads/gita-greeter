@@ -25,12 +25,14 @@ SELECT * FROM verses WHERE id = (SELECT id FROM verses WHERE id >= (SELECT abs(r
         let verse = statement.read::<i64, _>("position").unwrap();
         let transliteration = statement.read::<String, _>("transliteration").unwrap();
         let translation = statement.read::<String, _>("translation").unwrap();
-        println!("{:-^30}", chapter);
+        println!();
+        println!("*** Chapter {} , Verse {} ***", chapter, verse);
         println!();
         println!("{}", transliteration);
         println!();
         println!("{}", translation);
         println!();
-        println!("{:-^30}", verse);
+        println!("***");
+        println!();
     }
 }
