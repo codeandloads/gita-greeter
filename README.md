@@ -4,7 +4,7 @@ Divine Bhagavad-gita verses greeter on command line. 🙏. All verses are stored
 
 The project depends on your HOME variable and thus it required bhagavad.sqlite to be stored in _$HOME/_ directory. i.e your home directory.
 
-![preview](https://user-images.githubusercontent.com/49165465/234752978-4a264ec8-c1ba-4020-a8e2-f0e440188f33.png)
+https://user-images.githubusercontent.com/49165465/235080579-ccccd410-4ebc-4f32-b090-e98c791c3820.mp4
 
 ## Setup
 
