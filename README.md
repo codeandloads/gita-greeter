@@ -20,8 +20,9 @@ As of now, the only way to build project is using rust toolchains.
     cd gita-greeter
 
     cargo build --release
-
-    # or
-
-    make build
 ```
+Another way is to use the make build process.
+```console
+make install # make uninstall
+```
+Then, execute the command *gita_greeter* from your shell profiles.
